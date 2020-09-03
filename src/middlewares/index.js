@@ -22,7 +22,7 @@ const checkAge = (req, res, next) => {
 };
 
 const isRegistered = async (req, res, next) => {
-    const user = await fetchUser(req.body.username.trim());
+    const user = await fetchUser(req.body.username.trim().toLowerCase());
     if (user.code !== 'OK') {
         res.status(401).json({
             message: user.code
